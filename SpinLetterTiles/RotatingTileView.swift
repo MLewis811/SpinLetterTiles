@@ -27,12 +27,11 @@ struct RotatingTileView: View {
                     .fill(.thickMaterial)
                     .overlay(RoundedRectangle(cornerRadius: size * 0.12).stroke(.secondary, lineWidth: 2))
                 VStack(spacing: 0) {
-                    ForEach(0..<2) { row in
+                    ForEach(0..<2, id: \.self) { row in
                         HStack(spacing: 0) {
-                            ForEach(0..<2) { col in
+                            ForEach(0..<2, id: \.self) { col in
                                 let letterIdx = indices[row * 2 + col]
                                 ZStack {
-                                    Color.clear
                                     Text(letters[letterIdx])
                                         .font(.system(size: size * 0.32, weight: .bold, design: .rounded))
                                         .foregroundStyle(.primary)
